@@ -1,0 +1,31 @@
+What are images
+Docker images are templates used to create Docker containers. Container is a running instance of image.
+(Basically images are files which have information about what all things will be required to create a container)
+-> Image typically contains a union of layerd filesystems stacked on top of each other.
+-> A single image can be used to create multiple containers.
+Where are images stored?
+Images are stored in Regestries (e.g. Docker Hub). Can be stored locally or remotely.
+
+-> Docker can build images automatically by reading the instructions from a Dockerfile.
+
+Command:
+1) docker images: give the list of all images we have
+
+2) docker images --help: will tell about the usage of docker images command
+
+3) docker images -q: only show numeric id's
+
+4) docker images -f filter_name: filter output based on conditions provided.
+   e.g. docker images -f "dangling=false" (dangling images are the images which are associated with the containers)
+   So in this case I will get those images which are not associated with the containers.
+ ->Further you can use this command as: docker images -f "dangling=false" -q => it will give the numeric ids of those images which are not asscoiated with the containers.
+
+5) docker pull image_name: will pull the image from the docker hub (e.g. docker pull ubuntu)
+   We can also pull particular version of images e.g. => docker pull ubuntu:18.04 
+
+6) docker run -it ubuntu: used to run container (-it means run container in interactive mode)
+
+7) docker inspect image_name: give all the details of the image.
+
+8) docker rmi image_name: it will remove the image from the docker.
+(image cannot be removed while it is being used by the container)
