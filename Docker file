@@ -1,0 +1,28 @@
+1. What is dockerfile
+2. How to create dockerfile
+3. How to build image from dockerfile
+4. Basic commands
+
+Dockerfile: It is a text file with instructions to build image. So dockerfile is basically automation of docker image creation.
+
+
+Step1: Create a file named Dockerfile.
+
+Step2: Add instruction in Dockerfile
+       Three Basic Instructions:
+       -> From: you have to give the name of base image on which you want build your new image or if you want to start from scratch you can simply write FROM scratch.
+       -> Run: write the command that you want to run on the image. 
+       -> CMD : write the command that you want to run while container creation. 
+       
+  *IMPORTANT: RUN gets executed during the building of the image wheras command inside CMD gets executed only when you create container out of the image.
+  
+     Example :
+     FROM ubuntu
+
+     RUN apt-get update
+
+     CMD ["echo", "Hello World....! from my first docker image"]
+
+Step3: Build dockerfile to create image. => docker build location_of_your_dockerfile
+
+Step4: Run image to create container.  => docker run image_id
